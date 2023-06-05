@@ -6,6 +6,7 @@ var liftsInput = document.querySelector("#lifts");
 button.addEventListener("click", function showSimulation() {
     var floors = floorsInput.value;
     var lifts = liftsInput.value;
+    if (!validatePositiveInteger(floors, lifts)) return;
     createState(lifts);
     createSimulation(floors, lifts);
 });
@@ -50,8 +51,8 @@ function moveLift(index, floor) {
 function doorAnimation(index, currLift) {
     var leftDoor = currLift.querySelector(".left");
     var rightDoor = currLift.querySelector(".right");
-        
-    openLift(leftDoor, rightDoor, index)
+
+    openLift(leftDoor, rightDoor, index);
 }
 
 function closeLift(leftDoor, rightDoor, index) {
@@ -80,24 +81,24 @@ function openLift(leftDoor, rightDoor, index) {
     var startWidth = 50;
     var duration = 1000;
     var startTimestamp = null;
-  
+
     function frame(timestamp) {
-      if (!startTimestamp) startTimestamp = timestamp;
-      var elapsed = timestamp - startTimestamp;
-      var progress = Math.max(0, Math.min(elapsed / duration, 1));
-      var width = startWidth * (1 - progress);
-  
-      leftDoor.style.width = width + 'px';
-      rightDoor.style.width = width + 'px';
-  
-      if (progress < 1) {
-        requestAnimationFrame(frame);
-      } else {
-        closeLift(leftDoor, rightDoor, index)
-      }
+        if (!startTimestamp) startTimestamp = timestamp;
+        var elapsed = timestamp - startTimestamp;
+        var progress = Math.max(0, Math.min(elapsed / duration, 1));
+        var width = startWidth * (1 - progress);
+
+        leftDoor.style.width = width + "px";
+        rightDoor.style.width = width + "px";
+
+        if (progress < 1) {
+            requestAnimationFrame(frame);
+        } else {
+            closeLift(leftDoor, rightDoor, index);
+        }
     }
     requestAnimationFrame(frame);
-  }
+}
 
 function handleLiftBtnClick(index, up) {
     var y = getIdleLift(index);
@@ -204,4 +205,15 @@ function lift() {
     elevator.append(leftDoor, rightDoor);
     liftContainer.append(elevator);
     return liftContainer;
+}
+
+function validatePositiveInteger(f, l) {
+    var positiveIntegerRegex = /^[1-9]\d*$/;
+    document.querySelector(".errorMsg").textContent = null
+    if (positiveIntegerRegex.test(f) && positiveIntegerRegex.test(l)) {
+        return true;
+    } else {
+        document.querySelector(".errorMsg").textContent = "*Values must be positive integers";
+        return false;
+    }
 }

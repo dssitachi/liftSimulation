@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .text-center {
@@ -9,13 +10,35 @@
 }
 
 .btn {
-    padding: 4px;
+    padding: 4px 8px;
     background: none;
-    border: 1px solid coral;
+    border: 2px solid burlywood;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin: 1em 0;
+    gap: 1rem;
+    justify-content: center;
 }
 
 .input {
     padding: 4px;
+}
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorMsg {
+    font-size: small;
+    font-weight: 300;
+    color: red;
 }
 
 .container {
@@ -49,7 +72,6 @@
 }
 
 .elevator {
-    background-color: red;
     height: 100px;
     width: 100px;
     position: absolute;
@@ -63,11 +85,13 @@
 }
 
 .left {
-    background-color: brown;
+    background-color: #CD7F32;
+    border: 1px solid black;
     left: 0;
 }
 
 .right {
-    background-color: green;
+    background-color: #CD7F32;
     right: 0;
+    border: 1px solid black;
 }

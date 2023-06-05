@@ -1,47 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="js/main.js" defer></script>
 </head>
+
 <body>
-    
+
     <h1 class="text-center">Lift Simulation</h1>
 
-    <label for="floors">No. of floors: </label>
-    <input type="number" name="floors" id="floors" class="input" />
+    <div class="yy">
 
-    <label for="lifts">No. of Lifts: </label>
-    <input type="number" name="lifts" id="lifts" class="input" />
-
-    <button class="btn simulate">Simulate</button>
-
+    </div>
+    <div class="input-container">
+        <div>
+            <label for="floors">No. of floors: </label>
+            <input type="text" name="floors" id="floors" class="input" />
+        </div>
+        <div>
+            <label for="lifts">No. of Lifts: </label>
+            <input type="text" name="lifts" id="lifts" class="input" />
+        </div>
+        <button class="btn simulate">Simulate</button>
+    </div>
+    <div class="error-container">
+        <span class="errorMsg"></span>
+    </div>
     <section class="container">
-
-        <!-- <div class="single-floor"></div>
-        <div class="single-floor"></div>
-        <div class="single-floor"></div>
-        <div class="single-floor"></div>
-
-        <div class="single-floor">
-            
-            <div class="box btn-box">
-                <button class="btn lift-btn">UP</button>
-                <button class="btn lift-btn">DOWN</button>
-            </div>
-
-            
-            <div class="box">
-                <div class="elevator" id="elevator">
-                    
-                </div>  
-            </div>
-        </div> -->
     </section>
 
 </body>
+
 </html>
