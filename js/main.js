@@ -28,6 +28,7 @@ function moveLift(index, floor) {
     var direction = true; // true means up direction
     if (currentBottom == bottom) {
         // only open the doors here
+        doorAnimation(index, currLift)
     } else if (currentBottom > bottom) {
         direction = false;
     }
