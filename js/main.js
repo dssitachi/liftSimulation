@@ -211,10 +211,24 @@ function lift() {
 function validatePositiveInteger(f, l) {
     var positiveIntegerRegex = /^[1-9]\d*$/;
     document.querySelector(".errorMsg").textContent = null
-    if (positiveIntegerRegex.test(f) && positiveIntegerRegex.test(l)) {
-        return true;
-    } else {
+    console.log(parseInt(f))
+    
+    if (!positiveIntegerRegex.test(f) || !positiveIntegerRegex.test(l)) {
         document.querySelector(".errorMsg").textContent = "*Values must be positive integers";
         return false;
+    } 
+
+    var lifts = parseInt(l);
+    var floors = parseInt(f);
+    if(floors < 2) {
+        document.querySelector(".errorMsg").textContent = "*Floors should be greater than 2";
+        return false;
     }
+
+    if(lifts >= floors) {
+        document.querySelector(".errorMsg").textContent = "*Please keep the number of lifts less than number of floors";
+        return false;
+    }
+
+    return true;
 }
